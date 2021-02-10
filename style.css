@@ -33,17 +33,16 @@ html {
   text-shadow: 0.2rem 0.2rem 0.5rem #aaa;
 }
 
-/* css 027 :  signup-btn, signin-btn 클릭한때, heading-span에 효과 넣기   */
+/* css 027 :   */
 .heading span {
   position: relative;
 }
 
-/* css 027  */
 .heading-span-1 {
-  z-index: 10; /* 움직이는 박스가 'sign'가리는 현상 해결 */
+  z-index: 10;
 }
 
-/* css 027  */
+/* css 027 : click sign-btn, and effect on heading-span  */
 .heading-span-2::after {
   content: "";
   position: absolute;
@@ -105,7 +104,6 @@ html {
 
 /* @ form */
 
-/* CSS 018 : 빈 div박스에 높은 width ,height + shadow넣어서 전체를 감싸는 효과 넣음 */
 .form-bg {
   position: absolute;
   width: 65rem;
@@ -121,13 +119,13 @@ html {
 
 .form-input-wrapper {
   margin: 1.5rem 0;
-  /* css 017 shadow 오른쪽, 아래 만듬 */
+  /* css 017 shadow -right, bottom */
   box-shadow: 0.5rem 0.5rem 0.5rem #eee;
   border-radius: 5rem;
   position: relative;
 }
 
-/* css 030  : signIn-sighUp 버튼 클릭한때, input메뉴 몇개 사라지고 , 돌아오게하기*/
+/* css 030  : signIn-sighUp btn click, visible and hidden input menu*/
 
 .form-input-wrapper:nth-child(1),
 .form-input-wrapper:nth-child(4) {
@@ -152,7 +150,7 @@ html {
   padding: 0 2rem;
   letter-spacing: 0.2rem;
 
-  /* css 016 : shadow Trick : shadow만들고 border 없애기*/
+  /* css 016 :  make shadow and remove border*/
   border: none;
   border-radius: 5rem;
 
@@ -162,7 +160,7 @@ html {
 
 .form-input {
   /* css 016 */
-  /* css 017 , inset : 그림자가 박스 안에 생기게 함 - shadow 왼쪽, 위 */
+  /* css 017 , - shadow left, top */
   box-shadow: 0.3rem 0.3rem 0.5rem #eee inset;
 
   color: #888;
@@ -219,68 +217,48 @@ html {
 .change .form-btn {
   top: 1rem;
   transition: top 0.3s, box-shadow 0.3s;
-
-  /* css 033 
-  ⚡transition도 우선순위 때문에 적용 안되는 경우가 있음
-  
-  transition: top 0.3s; 가 적용 안되는 문제 :border: 
-  상위태그인.form input; 에 transition: box-shadow 0.3s; 이 이미 있었음. 
-  precedence에 밀려서 적용이 안됨.
-  
-  그래서 여기로 옮김*/
 }
 
-/* hover효과 : shadow 진하게 넣는 것으로 세련되게 표현됨 */
 .form-btn:hover {
   box-shadow: 0.5rem 0.5rem 2rem #ddd;
 }
 
-/* me : 
-992px : Tablet 로 작업하고, 
-
-768px : Tablet -  열심히 responsive⚡
-
-576px: phone - 열심히 responsive⚡
-
-(1200px : pc  대충 responsive)
-*/
+/* @ responsive */
 
 @media (max-width: 768px) {
-  .heading{
+  .heading {
     font-size: 5rem;
-
   }
-  .form-bg{
+  .form-bg {
     width: 55rem;
     height: 50rem;
-    
   }
-  .form input{
+  .form input {
     width: 40rem;
   }
 }
 @media (max-width: 576px) {
-  html{
+  html {
     font-size: 55%;
   }
-  .heading{
+  .heading {
     font-size: 4rem;
     top: 2rem;
   }
-  .buttons{
+  .buttons {
     left: 2rem;
     top: 2rem;
   }
-  .buttons button{
+  .buttons button {
     width: 7rem;
     height: 3rem;
     font-size: 1.7rem;
   }
- .form-bg{
-   height: 45rem;
-   width: 45rem;
- }
- .form input{
-   width: 35rem;
- }
+  .form-bg {
+    height: 45rem;
+    width: 45rem;
+  }
+  .form input {
+    width: 35rem;
+  }
 }
