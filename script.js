@@ -46,23 +46,14 @@ document.querySelector('.signin-btn').addEventListener('click',()=>{
 
 // 🦄part 4, when click 'submit' , input check
 
-/*
-js 034 input check
-1. parameter inputArr : array데이터 ...parameter. (input 데이터들)
-
-4. trim :
-str.trim() – 문자열 앞과 끝의 빈칸을 제거함 . */
+/*js 034 input check. */
 
 const username= document.querySelector('#username');
 const email= document.querySelector('#email');
 const password= document.querySelector('#password');
 const password2= document.querySelector('#password2');
 
-/* js 036 error message 만들기
-2. parameter 의미 : 함수안에 뚫은 구멍. 
-4. parentElement : parentNode와 비슷함
-6. className : elem.className="~", class를 "~"로 덮어씌움 
-8 함수실행 */
+/* js 036 Making error message */
 
 const error =(input,message)=>{
 
@@ -71,14 +62,14 @@ const error =(input,message)=>{
     inputWrapper.querySelector('.message').textContent = message;     
 };
 
-// js 045 success messsage. 성공하면 borderline 넣기
+// js 045 success messsage.
 const success = (input)=>{
     const inputWrapper = input.parentElement;
     inputWrapper.className = 'form-input-wrapper success';
 }
 
 
-// js 043 password2는 다른 message 추가
+// js 043 Put another message for password2
 
 const checkRequiredFeilds = (inputArr)=>{            //js 034-1
     inputArr.forEach((input)=>{                  
@@ -88,7 +79,6 @@ const checkRequiredFeilds = (inputArr)=>{            //js 034-1
                 error(input,"password confirmation is required");
             }
             else{                
-                // js 036-8, const error = (input, message)=>{}
                 error(input,`${input.id} is required`); 
             }
         }else{            
@@ -98,25 +88,14 @@ const checkRequiredFeilds = (inputArr)=>{            //js 034-1
 }
 
 
-/*  js 039, submit 클릭한때, input자료들 const error변수로 보내기 
-2. e.preventDefault : 기본동작 막기   👉 submit하면 기본적으로 refresh하므로, 일단 기본동작 막고, 다음 코딩함
-*/
+/*  js 039, submit click, send input datas to const error */
 
 /* js 047, 
-sign-up 에서는  [username, email, password, password2] 모두 검사
-sign-in 에서는 [email,password] 만 검사
-
-2. .classList[1] : class안 이름 검사하는 법      */
+Test [username, email, password, password2] on sign-up
+Test only [email,password] on sign-in    */
 
 
-/*  js 051, submit click한때, username, password의 길이 체크
-
-알고리즘: 
-2. input, min, max 파라미터
-4. input.value.length가 min보다 작을때, error
-6.   ~~~~~~~~~~~~~~~~~~ max보다 클때 , error
-
-8. checkLength(파라미터1,2,3) 넣고 실행      */
+/*  js 051, submit click and Check length of username, password   */
 
  const checkLength = (input,min,max)=>{                          //js 051-2
      if( input.value.length < min ){                                   //js 051-4
@@ -128,11 +107,7 @@ sign-in 에서는 [email,password] 만 검사
      }
  };
 
- /* js 054, 
- 1. input1, input2 파라미터 
- 2. password-password2 비교 , 
- 4. 서로 다르면 error message
- 6.  passwordsMatch(파라미터1,2); 넣고 실행            */
+ /* js 054,  password-password2 check       */
 
  const passwordsMatch =(input1, input2)=>{
      if(input1.value !== input2.value){             //js 054-2
@@ -140,17 +115,7 @@ sign-in 에서는 [email,password] 만 검사
     }
  }; 
 
- /* js 055, email체크 - reqular expression
-
- 2. google : 'js regex for email' 
- 
- 4. test()
-
- 6. trim()
-
- 8. success() 👉 borderline색 바뀌는 함수 실행
-
- 10. checkEmail(email); 함수 실행            */
+ /* js 055, email check     */
 
 const checkEmail =(input)=>{
     const regEx = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -158,10 +123,8 @@ const checkEmail =(input)=>{
     if (regEx.test(input.value.trim())) {
         success(input);        
     } else {
-        error(input,"Email is not valid");
-        
+        error(input,"Email is not valid");        
     }
-
 };
 
 form.addEventListener('submit',(e)=>{
@@ -178,22 +141,11 @@ form.addEventListener('submit',(e)=>{
     } else{
         checkRequiredFeilds([email,password]);
     }    
-    checkEmail(email);              //js 055. if, else에 모두 넣거나, 그냥 바깥에 1개 넣거나..둘다 ㅇㅋ
+    checkEmail(email);              //js 055. 
 });
 
 
-/* 
-js 049 'sign up -  sign in' 바꿀때 에러메시지 지우기.
-
-알고리즘 : 
-2. 'form sing-up'으로 바뀐 className을 가져오기 - querySelectorAll
-
-4. form-input-wrapper로 재설정하기 - forEach
-
-6. form.reset; 으로 에러메시지 지움
-
-8. signup-btn, signin-btn 클릭때마다 실행하기 
-*/
+/* js 049 Delete error message when 'sign up -  sign in' changed    */
 
 const clearForm = ()=>{   
 
