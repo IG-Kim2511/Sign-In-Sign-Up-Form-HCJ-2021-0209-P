@@ -1,22 +1,20 @@
-/* 🦄part 2, signup-btn, signin-btn 클릭한때, classList.add('change'),  ~~~ 효과 넣기 
+/* 🦄part 2, Click signup-btn, signin-btn and classList.add('change').
 js 023
 js 025
 css 027
 css 030*/
 
-/* js 023: 버튼 색 바뀌게하기
+/* js 023: changing btn color
 
 JS : 
-signUp click하면 , 부모태그에 change 넣고, - 
-signIn click하면 , 부모태그에 change 뺌 , 
+signUp click ,  put 'change' class on parentElement. 
+signIn click , remove 'change' class on parentElement. 
 
 CSS : 
-부모태그에 change 있으면, signUp 에 lightcoral 넣음
-부모태그에 change 없으면, signIn 에 lightcoral 넣음 */
+if there is 'change' class on parentElement, put a color 'lightcoral' on signUp
+if there is not'change' class on parentElement, put a color 'lightcoral' on signIn
 
-/* js 025 : signup-btn, signin-btn 클릭한때, heading-span 내용, "Up - In" 넣어서, sign In, sing Up 만들기
-
-textContent vs innerHTML 👉 👻노트필기    */
+/* js 025 : Click signup-btn, signin-btn ,and change heading-span text  */
 
 
 const container = document.querySelector('.container');
